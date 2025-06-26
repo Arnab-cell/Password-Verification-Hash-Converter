@@ -4,11 +4,6 @@
 
 This project is developed as part of the Information and Computer Science (ICS) curriculum. It aims to [briefly describe the objective — e.g., automate a task, build a system, create an educational tool, etc.]. The project integrates core concepts of software development, user interface design, and algorithmic logic.
 
-![Login Page Screenshot]("[.\static\LoginPage.png)")
-
-![Prototype Screenshot](".\static\Prototype.png")
-
-
 ## 🎯 Key Features
 
 - Feature 1 – [e.g., User login system]
