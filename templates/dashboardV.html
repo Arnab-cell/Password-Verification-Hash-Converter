@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hash Verifer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Password Verification and Hash Converter</h2>
+        <nav class="navigation">
+            <form action="{{ url_for('dashboardC') }}" method="get">
+                <button type="submit" class="btn">CONVERTER</button>
+            </form>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div>
+            <h2>Welcome, {{ username }}!</h2>
+            <p><strong>Your original password:</strong> {{ original_password }}</p>
+            <p><strong>Your hashed password:</strong> {{ hashed_password }}</p>
+
+            <br>
+            <h3>Hash Verifier</h3>
+
+            {% if verified_message %}
+                {% if match %}
+                    <p class="m_pass"><strong>{{ verified_message }}</strong></p>
+                {% else %}
+                    <p class="m_fail"><strong>{{ verified_message }}</strong></p>
+                {% endif %}
+            {% endif %}
+
+            <div class="input-box">
+                <form action="/hash_verifier" method="post">
+                    Enter Password to Verify: <input type="text" name="v_password" class="text-box"><br>
+                    Enter Hash to Verify: &emsp;&emsp;&nbsp;<input type="text" name="v_hash" class="text-box">
+                    <button type="submit" class="btn">VERIFY</button>
+                </form>
+
+                <form action="{{ url_for('logout') }}" method="get">
+                    <button type="submit" class="btn log">LOGOUT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Password Verification and Hash Converter</h2>
+        <nav class="navigation">
+            <form action="{{ url_for('dashboardV') }}" method="get">
+                <button type="submit" class="btn">VERIFIER</button>
+            </form>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div>
+            <h2>Welcome, {{ username }}!</h2>
+            <p><strong>Your original password:</strong> {{ original_password }}</p>
+            <p><strong>Your hashed password:</strong> {{ hashed_password }}</p>
+
+            <br>
+            <h3>Hash Converter</h3>
+
+            {% if converted_text and converted_hash %}
+                <p><strong>Entered Password:</strong> {{ converted_text }}</p>
+                <p><strong>Hashed Version:</strong> {{ converted_hash }}</p>
+            {% endif %}
+
+            <div class="input-box">
+                <form action="/hash_converter" method="post">
+                    Enter Password to Hash: <input type="text" name="text_to_hash" class="text-box">
+                    <button type="submit" class="btn">CONVERT</button>
+                </form>
+
+                <form action="{{ url_for('logout') }}" method="get">
+                    <button type="submit" class="btn log">LOGOUT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
